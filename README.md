@@ -17,6 +17,7 @@ CSV viewer that takes a data config like below and allows you to browse the data
 - Efficient table viewing for large datasets by keeping DOM small and avoiding garage collection by reusing cells.
 - Support for parsing large datasets off-thread in a web worker to keep browser responsive.
 - Minimal memory usage for sorting datasets.
+- Merge CSS into single `<style>` tag for HTML to reduce latency.
 
 # Dependencies
 
@@ -25,3 +26,30 @@ CSV viewer that takes a data config like below and allows you to browse the data
 - `Webpack 4` for bundling JS, CSS and HTML.
 - `Babel` for cross browser support
 - `React` for rendering UI
+- `npm` for package management.
+
+# Running
+
+After checking out the repo, you can use `npm` to get all required deps for doing this. I'd recommend
+using `virtualenv` to avoid messing with your global deps.
+
+After running `npm install` or the equivalent, you should be able to run the macros in the `package.json`. Try:
+
+```
+npm start
+```
+
+for development and
+
+```
+npm run build
+```
+
+for distribution.
+
+# If I had more time
+
+I'd like to probably add:
+
+- A dynamic way to filter data via a JS `DSL` likely
+- More dynamic configuration options for loading individual CSS, etc.
