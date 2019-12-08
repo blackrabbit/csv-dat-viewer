@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import DataConfigContext from "state/dataconfigcontext";
+import { DATA_SOURCES_PANE_ID } from "constants.js";
 
 import styles from "./styles.css";
-import { DATA_SOURCES_PANE_ID } from "constants.js";
 
 const DataSourcesPane = () => {
   const [data_config, setDataConfig] = useContext(DataConfigContext);

@@ -54,7 +54,7 @@ const SourceDetailsPane = props => {
         </span>
         <span className={styles.downloadicon}>
           <a href={source_details.details.getRawUrl()}>
-            <Icon></Icon>
+            <Icon name="download"></Icon>
           </a>
         </span>
       </div>
@@ -77,19 +77,35 @@ const SourceDetailsPane = props => {
     );
   };
 
+  const ErrorLoadingDataConfig = () => {
+    return (
+      <div>
+        <h2 className={styles.error}>Data config was unable to load.</h2>
+      </div>
+    );
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
+        {/* Selected and data is present. */}
         {props.selected_name && !source_details.details.isEmpty() && (
           <SelectedSourceDetailsFound></SelectedSourceDetailsFound>
         )}
-        {!props.selected_name && source_details.details.isEmpty() && (
-          <PleaseSelectDetails></PleaseSelectDetails>
+        {/* Error loading data config. */}
+        {props.error_occurred && (
+          <ErrorLoadingDataConfig></ErrorLoadingDataConfig>
         )}
+        {/* Nothing selected yet. */}
+        {!props.selected_name &&
+          !props.error_occurred &&
+          source_details.details.isEmpty() && (
+            <PleaseSelectDetails></PleaseSelectDetails>
+          )}
       </div>
-      {props.selected_name && !source_details.details.isEmpty() && (
-        <ChooseMode></ChooseMode>
-      )}
+      {props.selected_name &&
+        !props.error_occurred &&
+        !source_details.details.isEmpty() && <ChooseMode></ChooseMode>}
     </div>
   );
 };

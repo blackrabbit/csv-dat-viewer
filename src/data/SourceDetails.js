@@ -1,32 +1,3 @@
-// Constant for sampling for average characters.
-const NUM_SAMPLES_FOR_AVERAGE_CHARACTERS = 1000;
-
-// Generate array where the values are the indices.
-// We use this to generate an index for sorting.
-function generateArrayWithIndices(size) {
-  const array = new Array(size).fill(true);
-  for (let i = 0; i < array.length; i++) {
-    array[i] = i;
-  }
-
-  return array;
-}
-
-// Clean the downloaded data. We have a known bug in
-// Papaparse where the last row is sometimes added
-// empty when streaming.
-function cleanData(parsed_data, number_of_headers) {
-  const data = [];
-  for (let i = 0; i < parsed_data.length; i++) {
-    let row = parsed_data[i];
-    if (row.length == number_of_headers) {
-      data.push(row);
-    }
-  }
-
-  return data;
-}
-
 /**
  * Represents a data config that can be used to render the UI.
  */
@@ -172,11 +143,11 @@ class SourceDetails {
     const std_dev = Math.sqrt(avg_square_diff);
 
     return {
-      min: min,
-      max: max,
-      mean: mean,
+      min: min.toFixed(2),
+      max: max.toFixed(2),
+      mean: mean.toFixed(2),
       null_count: nulls,
-      std_dev: std_dev
+      std_dev: std_dev.toFixed(2)
     };
   }
 
@@ -205,6 +176,32 @@ class SourceDetails {
   getSize() {
     return this.data_.length;
   }
+}
+
+// Generate array where the values are the indices.
+// We use this to generate an index for sorting.
+function generateArrayWithIndices(size) {
+  const array = new Array(size).fill(true);
+  for (let i = 0; i < array.length; i++) {
+    array[i] = i;
+  }
+
+  return array;
+}
+
+// Clean the downloaded data. We have a known bug in
+// Papaparse where the last row is sometimes added
+// empty when streaming.
+function cleanData(parsed_data, number_of_headers) {
+  const data = [];
+  for (let i = 0; i < parsed_data.length; i++) {
+    let row = parsed_data[i];
+    if (row.length == number_of_headers) {
+      data.push(row);
+    }
+  }
+
+  return data;
 }
 
 export default SourceDetails;

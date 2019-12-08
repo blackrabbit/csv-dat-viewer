@@ -1,25 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { VariableSizeGrid as Grid } from "react-window";
-import { DATA_SOURCES_PANE_ID } from "constants.js";
-
-import styles from "./styles.css";
+import {
+  DATA_SOURCES_PANE_ID,
+  VERTICAL_HEADER_FOOTER_MARGIN,
+  ROW_HEIGHT_PX,
+  LEFT_HAND_SIDE_COLUMN,
+  PADDING_PIXELS_MARGIN
+} from "constants.js";
 import { debounce } from "utils.js";
 
-const COLUMN_WIDTH = 150;
+import styles from "./styles.css";
 
 function getWidth(window_width, num_columns) {
   return (
     Math.min(
       window_width -
         document.getElementById(DATA_SOURCES_PANE_ID).offsetWidth -
-        60,
-      COLUMN_WIDTH * num_columns
-    ) + 19
+        PADDING_PIXELS_MARGIN,
+      LEFT_HAND_SIDE_COLUMN * num_columns
+    ) +
+    PADDING_PIXELS_MARGIN / 3
   );
 }
 
 function getHeight(window_height) {
-  return window_height - 145;
+  return window_height - VERTICAL_HEADER_FOOTER_MARGIN;
 }
 
 const TableView = props => {
@@ -132,12 +137,12 @@ const TableView = props => {
       <Grid
         className={styles.table}
         columnCount={props.source_details.getNumberOfColumns()}
-        columnWidth={column_index => COLUMN_WIDTH}
+        columnWidth={_ => LEFT_HAND_SIDE_COLUMN}
         initialScrollLeft={0}
         initialScrollTop={0}
         height={getHeight(dimensions.height)}
         rowCount={props.source_details.getSize() + 1}
-        rowHeight={() => 30}
+        rowHeight={() => ROW_HEIGHT_PX}
         width={getWidth(
           dimensions.width,
           props.source_details.getNumberOfColumns()

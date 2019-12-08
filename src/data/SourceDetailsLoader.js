@@ -1,8 +1,9 @@
 import SourceDetails from "data/SourceDetails";
 import Papa from "papaparse";
 
-const rawParsedJsonCache = new WeakMap();
-
+/**
+ * Loads data for a particular CSV off the network.
+ */
 class SourceDetailsLoader {
   constructor(source_details_config) {
     this.source_details_config_ = source_details_config;
@@ -19,9 +20,9 @@ class SourceDetailsLoader {
           Papa.parse(file_path, {
             download: true,
             delimiter: ",",
+            worker: parseInt(this.source_details_config_.row_count, 10) > 100000,
             keepEmptyRows: false,
             complete: results => {
-              // rawParsedJsonCache.set(hashCode(file_path), results);
               resolve(results);
             }
           });

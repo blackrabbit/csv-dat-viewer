@@ -13,6 +13,10 @@ class DataConfig {
     this.parse_();
   }
 
+  isEmpty() {
+    return this.raw_json_ == [];
+  }
+
   parse_() {
     for (let data_set of this.raw_json_) {
       this.data_config_.set(uuidv4(), data_set);

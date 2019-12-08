@@ -1,7 +1,8 @@
 table.summarystats {
-  width: 100%;
+  width: 50%;
   text-align: center;
   padding-left: 100px;
+  margin-left: 50px;
 }
 
 table.summarystats th {
@@ -21,11 +22,14 @@ table.summarystats tr, th, td {
 h3 {
   font-family: 'Roboto Mono', monospace;
   margin-top: 20px;
+  display: flex;
 }
 
 h3 span {
-  background-color: rgb(179, 179, 179);
-  padding: 3px;
+  background: linear-gradient(45deg, rgba(20,71,153,1) 0%, rgba(58,26,122,1) 80%, rgba(58,26,122,1) 92%);  align-items: center;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
 }
 
 .container {

@@ -6,6 +6,7 @@ import {
   XAxis,
   YAxis
 } from "@data-ui/histogram";
+import { SUMMARY_VIEW_BAR_HEIGHT } from "constants.js";
 
 import styles from "./styles.css";
 
@@ -21,7 +22,7 @@ const StatisticHistogram = props => {
       cumulative={false}
       normalized={true}
       binCount={15}
-      height={200}
+      height={SUMMARY_VIEW_BAR_HEIGHT}
       valueAccessor={datum => datum}
       binType="numeric"
       renderTooltip={({ event, datum, data, color }) => (
@@ -44,7 +45,7 @@ const StatisticHistogram = props => {
         </div>
       )}
     >
-      <BarSeries animated={false} fill={"#4698ff"} rawData={props.raw_data} />
+      <BarSeries animated={false} fill={"#193094"} rawData={props.raw_data} />
       <XAxis />
       <YAxis />
     </ResponsiveHistogram>
@@ -81,9 +82,9 @@ const StatisticSummary = props => {
     <div className={styles.onestatistic}>
       <h3>
         <span>{props.header_name}</span>
+        <NumericalSummary data={props.summary_data}></NumericalSummary>
       </h3>
       <StatisticHistogram raw_data={props.column_data}></StatisticHistogram>
-      <NumericalSummary data={props.summary_data}></NumericalSummary>
     </div>
   );
 };

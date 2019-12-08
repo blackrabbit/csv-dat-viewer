@@ -1,4 +1,3 @@
-
 /**
  * Debounces function once per requestAnimationFrame.
  */

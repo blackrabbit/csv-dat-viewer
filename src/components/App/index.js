@@ -17,6 +17,10 @@ const App = () => {
     data: new DataConfig([])
   });
 
+  const [error, setError] = useState({
+    error_occurred: false
+  });
+
   useEffect(() => {
     const fetchDataConfig = async () => {
       const dataConfigLoader = new DataConfigLoader(URL_FOR_DATA_CONFIG);
@@ -24,6 +28,10 @@ const App = () => {
 
       if (result.status == DataConfigLoader.Status.SUCCESS) {
         setDataConfig({ data: result.data_config });
+      }
+
+      if (result.status != DataConfigLoader.Status.SUCCESS) {
+        setError({ error_occurred: true });
       }
       // TODO: Handle error states.
     };
@@ -41,6 +49,7 @@ const App = () => {
           <DataSourcesPane></DataSourcesPane>
           <SourceDetailsPane
             selected_name={data_config.selected_config}
+            error_occured={error.error_occurred}
           ></SourceDetailsPane>
         </div>
       </DataConfigContext.Provider>
