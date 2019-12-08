@@ -14,19 +14,15 @@ class SourceDetailsLoader {
 
     const parse = async file_path => {
       return new Promise(resolve => {
-        if (rawParsedJsonCache.has(hashCode(file_path))) {
-          resolve(rawParsedJsonCache.get(hashCode(file_path)));
-        } else {
-          Papa.parse(file_path, {
-            download: true,
-            delimiter: ",",
-            worker: parseInt(this.source_details_config_.row_count, 10) > 100000,
-            keepEmptyRows: false,
-            complete: results => {
-              resolve(results);
-            }
-          });
-        }
+        Papa.parse(file_path, {
+          download: true,
+          delimiter: ",",
+          worker: parseInt(this.source_details_config_.row_count, 10) > 100000,
+          keepEmptyRows: false,
+          complete: results => {
+            resolve(results);
+          }
+        });
       });
     };
 
