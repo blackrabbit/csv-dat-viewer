@@ -1,0 +1,48 @@
+{
+  "name": "data_viewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development --watch --open",
+    "build": "webpack --mode production"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime"
+    ]
+  },
+  "keywords": [],
+  "author": "Ali Shah <thealishah@gmail.com> (alternativel.ly)",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-transform-runtime": "^7.7.5",
+    "@babel/preset-env": "^7.7.5",
+    "@babel/preset-react": "^7.7.4",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.1",
+    "eslint": "^6.7.2",
+    "eslint-config-google": "^0.14.0",
+    "eslint-loader": "^3.0.3",
+    "prettier": "1.19.1",
+    "react-hot-loader": "^4.12.18",
+    "style-loader": "^1.0.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.7.5",
+    "@data-ui/histogram": "0.0.84",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-window": "^1.8.5",
+    "timsort": "^0.3.0"
+  }
+}

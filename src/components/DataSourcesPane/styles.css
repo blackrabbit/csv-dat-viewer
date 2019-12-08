@@ -1,0 +1,31 @@
+.sourcedetailslink {
+  margin-left: 30px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: rgb(140, 153, 180);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.selected .sourcedetailslink  {
+  color: white;
+}
+
+.pane {
+  z-index: 15;
+}
+
+.sourcedetailssubitem {
+  margin-left: 15px;
+  color: white;
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-transform: underline;
+}
+
+.selected span.selectedsubitem {
+  background-color: white;
+  color: rgb(61, 68, 87);
+}

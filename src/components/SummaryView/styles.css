@@ -1,0 +1,37 @@
+table.summarystats {
+  width: 100%;
+  text-align: center;
+  padding-left: 100px;
+}
+
+table.summarystats th {
+  font-size: 11px;
+  border-bottom: 1px solid rgb(110, 110, 110);
+}
+
+table.summarystats tr, th, td {
+  font-family: 'Roboto Mono', monospace;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 30px;
+  width: 100%;
+}
+
+h3 {
+  font-family: 'Roboto Mono', monospace;
+  margin-top: 20px;
+}
+
+h3 span {
+  background-color: rgb(179, 179, 179);
+  padding: 3px;
+}
+
+.container {
+  margin-left: 50px;
+}
+
+.onestatistic {
+  margin-bottom: 100px;
+}
