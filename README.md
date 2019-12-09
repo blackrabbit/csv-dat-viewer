@@ -1,5 +1,7 @@
 # csv-dat-viewer
 
+![Example screenshot](example.png)
+
 CSV viewer that takes a data config like below and allows you to browse the datasets listed in it.
 
 ```
@@ -11,6 +13,8 @@ CSV viewer that takes a data config like below and allows you to browse the data
   },
 ]
 ```
+
+Best used in Chrome 78.0.3904.108 (Official Build) (64-bit)
 
 # Features
 
