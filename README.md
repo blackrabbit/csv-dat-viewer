@@ -57,3 +57,7 @@ I'd like to probably add:
 
 - A dynamic way to filter data via a JS `DSL` likely
 - More dynamic configuration options for loading individual CSS, etc.
+
+# Troubleshooting
+
+- I've had to clear the cache on my browser given the cache headers on all the files are quite long. Easy way to do this in Chrome is CTRL + SHIFT + R.
